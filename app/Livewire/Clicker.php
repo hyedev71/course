@@ -27,9 +27,9 @@ class Clicker extends Component
 		$validated = $this->validate();
 
 		User::create([
-			'name' => $validate['name'],
-			'email' => $validate['email'],
-			'password' => Hash::make($validate['password']),
+			'name' => $validated['name'],
+			'email' => $validated['email'],
+			'password' => Hash::make($validated['password']),
 		]);
 
 		$this->reset(['name', 'email', 'password']);
