@@ -44,8 +44,12 @@
 			<span class="text-green-500 text-xs">Uploading....</span>
 		</div>
 
+		<div wire:loading.delay >
+			<span class="text-green-500">Processing....</span>
+		</div>
+
 		<div class="flex items-center justify-between mt-3">
-			<button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+			<button wire:loading.attr="disabled" wire:loading.class="bg-blue-200" wire:loading.class.remove="hover:bg-teal-700" type="submit" class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
 				Create +
 			</button>
 		</div>
