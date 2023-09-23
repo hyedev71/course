@@ -1,6 +1,6 @@
 <div class="mt-10 p-5 mx-auto sm:w-full sm:max-w-sm shadow border-teal-500 border-t-2">
 
-	 <div class="flex">
+	<div class="flex">
 		<h2 class="text-center font-semibold text-2x text-gray-800 mb-5">Create New Account</h2>
 	</div>
 
@@ -44,13 +44,17 @@
 			<span class="text-green-500 text-xs">Uploading....</span>
 		</div>
 
-		<div wire:loading.delay >
-			<span class="text-green-500">Processing....</span>
-		</div>
-
 		<div class="flex items-center justify-between mt-3">
-			<button wire:loading.attr="disabled" wire:loading.class="bg-blue-200" wire:loading.class.remove="hover:bg-teal-700" type="submit" class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-				Create +
+			<button @click="$dispatch('user-created')" type="button" class="bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline relative">
+				Reload List
+			</button>
+
+			<button wire:loading.attr="disabled" wire:loading.class="bg-blue-100 text-gray-100" wire:loading.class.remove="hover:bg-blue-800" type="submit" class="bg-blue-600 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline relative">
+				<span class="mr-2">Create +</span>
+				<svg wire:loading class="animate-spin h-5 w-5 mr-3" viewBox="0 0 24 24">
+					<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+					<path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.96 7.96 0 014 12H0c0 6.627 5.373 12 12 12v-4a7.963 7.963 0 01-6-2.709z"></path>
+				</svg> 
 			</button>
 		</div>
 	</form>

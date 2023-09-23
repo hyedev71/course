@@ -26,7 +26,7 @@ class RegisterForm extends Component
 
     public function create()
 	{
-		//sleep(2); // Only for testing. Remove or comment this when you do not need it
+		sleep(1); // Only for throttling testing. Remove or comment this when you do not need it
 		
 		$validated = $this->validate();
 
@@ -34,11 +34,18 @@ class RegisterForm extends Component
 			$validated['image'] = $this->image->store('uploads', 'public');
 		}
 
-		User::create($validated);
+		$user = User::create($validated);
 
 		$this->reset(['name', 'email', 'password', 'image']);
 		
 		request()->session()->flash('success', 'User Created!');
+
+		$this->dispatch('user-created', $user);
+	}
+	
+	public function ReloadList()
+	{
+		$this->dispatch('user-created');
 	}
 
     public function render()
