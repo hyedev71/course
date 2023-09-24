@@ -1,4 +1,4 @@
-<div class="mt-10 p-5 mx-auto xl:w-full xl:max-w-xl shadow border-teal-500 border-t-2">
+<div wire:poll.visible.2s class="mt-10 p-5 mx-auto w-5/6 shadow border-teal-500 border-t-2">
 
 	<h2 class="text-left font-semibold text-2x text-gray-800 mb-5">User List</h2>
 

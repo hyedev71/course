@@ -19,17 +19,17 @@
 		<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     </head>
     <body class="antialiased">
+
 		{{--
 		@livewire ('clicker') 
 		--}}
 
-		<div class="flex">
-			<div class="w-2/4">
-				@livewire ('user-list') 
-			</div>
-			<div class="w-2/4">
-				@livewire ('register-form') 
-			</div>
+		<div class="flex justify-center">
+			@livewire ('user-list') 
+		</div>
+
+		<div class="flex justify-center">
+			@livewire ('register-form') 
 		</div>
 
 		<!-- BootstrapV5 -->
