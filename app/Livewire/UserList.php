@@ -11,6 +11,8 @@ class UserList extends Component
 {
 	use WithPagination;
 
+	public $search;
+
 	/*
 	#[On('user-created')]
 	public function updateList($user = null)
@@ -24,12 +26,17 @@ class UserList extends Component
 		return view('placeholder');
 	}
 
+	public function update()
+	{
+	
+	}
+
     public function render()
     {
-		sleep(3); // Only for throttling testing. Remove or comment this when you do not need it
+		//sleep(3); // Only for throttling testing. Remove or comment this when you do not need it
 		
 		return view('livewire.user-list', [
-			'users' => User::latest()->paginate(4),
+			'users' => User::latest()->where('name', 'like', "%$this->search%")->paginate(5),
 			'user_count' => User::count(),
 		]);
     }
