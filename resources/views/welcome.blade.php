@@ -25,12 +25,17 @@
 		--}}
 
 		<div class="flex justify-center">
-			@livewire ('user-list') 
+			{{--
+			@livewire ('user-list', ['lazy' => true]) 
+			--}}
+			<livewire:user-list lazy />
 		</div>
 
+		{{--
 		<div class="flex justify-center">
 			@livewire ('register-form') 
 		</div>
+		--}}
 
 		<!-- BootstrapV5 -->
 		<!--
