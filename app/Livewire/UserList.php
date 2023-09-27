@@ -28,7 +28,12 @@ class UserList extends Component
 
 	public function update()
 	{
-	
+		// update user list	
+	}
+
+	public function mount($search)
+	{
+		$this->search = $search;
 	}
 
     public function render()
@@ -36,7 +41,7 @@ class UserList extends Component
 		//sleep(3); // Only for throttling testing. Remove or comment this when you do not need it
 		
 		return view('livewire.user-list', [
-			'users' => User::latest()->where('name', 'like', "%$this->search%")->paginate(5),
+			'users' => User::latest()->where('name', 'like', "%$this->search%")->paginate(4),
 			'user_count' => User::count(),
 		]);
     }

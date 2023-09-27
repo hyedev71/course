@@ -26,9 +26,9 @@
 
 		<div class="flex justify-center">
 			{{--
-			@livewire ('user-list', ['lazy' => true]) 
+			@livewire ('user-list', ['lazy' => true, "search" => 'prof']) 
 			--}}
-			<livewire:user-list lazy />
+			<livewire:user-list lazy search="" />
 		</div>
 
 		{{--
