@@ -6,6 +6,7 @@ use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\Attributes\On;
+use Livewire\Attributes\Computed;
 
 class UserList extends Component
 {
@@ -34,15 +35,22 @@ class UserList extends Component
 	public function mount($search)
 	{
 		$this->search = $search;
+		
+		unset($this->users);
+	}
+	
+	#[Computed()]
+	public function users()
+	{
+		return User::latest()->where('name', 'like', "%$this->search%")->paginate(4);
 	}
 
+	/*
     public function render()
     {
 		//sleep(3); // Only for throttling testing. Remove or comment this when you do not need it
 		
-		return view('livewire.user-list', [
-			'users' => User::latest()->where('name', 'like', "%$this->search%")->paginate(4),
-			'user_count' => User::count(),
-		]);
+		return view('livewire.user-list', []);
     }
+	 */
 }
