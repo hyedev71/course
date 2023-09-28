@@ -1,7 +1,9 @@
 <div wire:poll.visible.2s class="mt-5 p-5 mx-auto w-2/5 shadow border-teal-500 border-t-2">
 	<h1 class="text-left font-semibold text-base text-teal-600 mb-5">
 		User List 
+		{{--
 		<span class="animate-pulse bg-indigo-200 dark:bg-indigo-700 text-indigo-700 dark:text-indigo-900 text-sm font-medium mr-2 px-2 py-1 rounded-full text-center">{{ number_format($user_count) }}</span>
+		--}}
 	</h1>
 
 	<div class="flex flex-wrap">
@@ -11,8 +13,8 @@
 
 		<div class="w-full">
 			<div role="status" class="max-w-md p-4 space-y-4 border border-gray-200 divide-y divide-gray-200 rounded shadow dark:divide-gray-700 md:p-6 dark:border-gray-700 text-xs">
-				@if (!empty($users))
-					@foreach ($users as $user)
+				@if (!empty($this->users))
+					@foreach ($this->users as $user)
 						<div class="flex items-center justify-between @if(!$loop->first){{ 'pt-4' }}@endif">
 							<div>
 								<div class="h-2.5 rounded-full w-100 mb-2.5">{{ $user->name }}</div>
@@ -27,11 +29,9 @@
 			</div>
 		</div>
 
-		@if (!empty($users->links()))
-			<div class="w-full p-2 mt-3 overflow-auto whitespace-normal text-center border border-gray-200 rounded shadow">
-				{{ $users->links() }}
-			</div>
-		@endif
+		<div class="w-full p-2 mt-3 overflow-auto whitespace-normal text-center border border-gray-200 rounded shadow">
+			{{ $this->users->links() }}
+		</div>
 	</div>
 </div>
 
