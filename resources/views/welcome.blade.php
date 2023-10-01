@@ -28,7 +28,10 @@
 			{{--
 			@livewire ('user-list', ['lazy' => true, "search" => 'prof']) 
 			--}}
+			{{--
 			<livewire:user-list lazy search="prof" />
+			--}}
+			@livewire ('contact-us')
 		</div>
 
 		{{--
